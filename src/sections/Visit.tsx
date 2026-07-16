@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 
 import { Reveal, SectionHeading, staggerChild, staggerParent } from "@/components/Reveal";
 import { buttonVariants } from "@/components/ui/button";
+import { VisitMap } from "@/components/VisitMap";
 import { WaveDivider } from "@/components/WaveDivider";
 
 const details = [
@@ -68,15 +69,8 @@ export function Visit() {
             ))}
           </motion.div>
 
-          <Reveal delay={0.15} className="overflow-hidden rounded-xl shadow-lifted">
-            <iframe
-              title="Map to Carmen's Seafood Restaurant, 343 43rd Place, Sea Isle City, NJ"
-              src="https://www.google.com/maps?q=Carmen%27s%20Seafood%20Restaurant%2C%20343%2043rd%20Place%2C%20Sea%20Isle%20City%2C%20NJ%2008243&output=embed"
-              className="h-80 w-full border-0 lg:h-full lg:min-h-96"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              allowFullScreen
-            />
+          <Reveal delay={0.15}>
+            <VisitMap />
           </Reveal>
         </div>
 
