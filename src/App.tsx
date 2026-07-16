@@ -1,7 +1,9 @@
+import { useEffect, useState } from "react";
 import { MotionConfig } from "framer-motion";
 
 import { Footer } from "@/components/Footer";
 import { Nav } from "@/components/Nav";
+import { MenuPage } from "@/pages/MenuPage";
 import { Boats } from "@/sections/Boats";
 import { Food } from "@/sections/Food";
 import { Gallery } from "@/sections/Gallery";
@@ -11,7 +13,47 @@ import { Shirt } from "@/sections/Shirt";
 import { Story } from "@/sections/Story";
 import { Visit } from "@/sections/Visit";
 
+function useHashRoute() {
+  const [hash, setHash] = useState(() => window.location.hash);
+  useEffect(() => {
+    const onHash = () => setHash(window.location.hash);
+    window.addEventListener("hashchange", onHash);
+    return () => window.removeEventListener("hashchange", onHash);
+  }, []);
+  return hash;
+}
+
 export default function App() {
+  const hash = useHashRoute();
+  const route = hash.startsWith("#/menu") ? "menu" : "home";
+
+  // returning from the menu page: the section anchors don't exist until the
+  // home page re-renders, so resolve the scroll manually
+  useEffect(() => {
+    if (route !== "home") return;
+    if (hash && hash !== "#top") {
+      document.querySelector(hash)?.scrollIntoView();
+    } else {
+      window.scrollTo({ top: 0, behavior: "auto" });
+    }
+  }, [route, hash]);
+
+  useEffect(() => {
+    document.title =
+      route === "menu"
+        ? "The Menu — Carmen's Seafood Restaurant, Sea Isle City, NJ"
+        : "Carmen's Seafood Restaurant — Sea Isle's Original Waterfront Restaurant";
+  }, [route]);
+
+  if (route === "menu") {
+    return (
+      <MotionConfig reducedMotion="user">
+        <MenuPage />
+        <div aria-hidden="true" className="grain pointer-events-none fixed inset-0 z-50 opacity-[0.05] mix-blend-multiply" />
+      </MotionConfig>
+    );
+  }
+
   return (
     <MotionConfig reducedMotion="user">
       <a

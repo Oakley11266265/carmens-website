@@ -1,0 +1,222 @@
+export type MenuItem = { name: string; note?: string };
+export type MenuSection = { title: string; intro?: string; items: MenuItem[] };
+export type MenuPageData = { title: string; sections: MenuSection[] };
+
+export const menuPages: MenuPageData[] = [
+  {
+    title: "Appetizers, Soups & Fried",
+    sections: [
+      {
+        title: "Appetizers",
+        items: [
+          { name: "Jumbo Oysters on the Half Shell", note: "Half dozen" },
+          { name: "Chilled Clams on the Half Shell", note: "One dozen littlenecks with cocktail sauce" },
+          { name: "Jumbo Shrimp Cocktail (5)", note: "Served with cocktail sauce and lemon" },
+          { name: "Blue Claw Crab Fingers", note: "With mustard sauce" },
+          { name: "Lump Crabmeat Cocktail", note: "Prepared fresh every day" },
+          { name: "Fresh Steamed Mussels", note: "Homemade marinara or our special white garlic sauce" },
+          { name: "Bucket of Mussels" },
+          { name: "Steamed Clams", note: "A dozen littlenecks, served with drawn butter" },
+          { name: "Bucket of 50 Steamers" },
+          { name: "“Just 3 Crabs”", note: "Spicy Maryland-style hard shells" },
+          { name: "Carmen's Steamers", note: "NEW! In our famous white sauce — 18 clams" },
+          { name: "Ala Carmen", note: "A dozen steamed littlenecks with tender shrimp and juicy mussels in our famous white sauce … don't ask — it's a secret!" },
+          { name: "Ala Carmen Deluxe", note: "Alaskan king crab, steamed lobster tail & plump scallops added — for one or for two" },
+          { name: "Appetizer Sampler", note: "Two broiled mini crab cakes, two scallops wrapped in bacon, two clams casino" },
+          { name: "Clams Casino" },
+          { name: "Scallops Wrapped in Bacon" },
+          { name: "Mini Deviled Crab Cakes (5)", note: "Served with tartar sauce" },
+          { name: "Mushrooms Stuffed with Crabmeat" },
+          { name: "U-Peel Shrimp", note: "Cold or hot with Old Bay — half pound or full pound" },
+          { name: "Fried Calamari", note: "Thin-cut rings, crumb breaded, with spicy marinara" },
+          { name: "Fried Clams", note: "Strips of clams, breaded and fried to perfection" },
+          { name: "Potato Skins (5)", note: "Bacon, melted cheddar, served with sour cream" },
+          { name: "Basket of Onion Rings" },
+          { name: "Garlic Bread with Cheese", note: "Crispy Italian bread with melted cheese — dip it in our famous red sauce (also available without cheese)" },
+          { name: "Chicken Fingers (5)", note: "Barbecue or honey mustard sauce" },
+          { name: "Popcorn Chicken", note: "Barbecue or honey mustard sauce" },
+        ],
+      },
+      {
+        title: "Soups & Salads",
+        intro: "You may substitute soup for salad …",
+        items: [
+          { name: "Manhattan Style Crab Chowder", note: "A steaming bowl of our red chowder, made here from scratch" },
+          { name: "Manhattan Style Clam Chowder", note: "Same red chowder, but made with fresh clams" },
+          { name: "Tomato, Fresh Mozzarella & Basil Salad" },
+          { name: "Caesar Salad", note: "With grilled chicken, or with grilled shrimp (5)" },
+          { name: "The Wedge", note: "NEW! Crisp iceberg topped with crumbled blue cheese, red onion and tomato" },
+        ],
+      },
+      {
+        title: "Dinner Accompaniments",
+        intro:
+          "All entrées served with freshly baked bread, tossed salad, and a side of pasta with red sauce or choice of two side dishes: french fries, cole slaw, onion rings, corn on the cob, baked beans, macaroni salad, vegetable medley, or angel hair pasta with marinara.",
+        items: [],
+      },
+      {
+        title: "Golden Fried Seafood Entrées",
+        intro: "Carmen's uses 100% cholesterol-free oil for all our fried foods.",
+        items: [
+          { name: "Deviled Crab Cakes (2)", note: "Outstanding flavor from our personal recipe, fried or broiled" },
+          { name: "Soft Shell Crabs", note: "In season" },
+          { name: "Fillet of Flounder (Fluke)", note: "From our docks, to your dish" },
+          { name: "Day Boat Fried Scallops", note: "From Jersey water" },
+          { name: "Scallops and Deviled Crab Cake" },
+          { name: "Stuffed Shrimp (2)", note: "Jumbo shrimp surrounded by our deviled crab stuffing, fried or broiled" },
+          { name: "Jumbo Fried Shrimp (7)", note: "Big ones!" },
+          { name: "Fried Clam Strips", note: "A clam lover's delight" },
+          { name: "Flounder and Deviled Crab Cakes" },
+          { name: "Soft Shell Crabs and Fried Shrimp" },
+          { name: "Jumbo Shrimp and Juicy Scallops" },
+          { name: "Fresh Jersey Scallops and Flounder Filet" },
+          { name: "Filet of Flounder and Jumbo Shrimp" },
+          { name: "Filet of Flounder and Soft Shell Crab", note: "In season" },
+          { name: "Deviled Crab Cake and Soft Shell Crab", note: "In season" },
+          { name: "Deviled Crab Cake and Shrimp" },
+        ],
+      },
+      {
+        title: "Specialties",
+        items: [
+          { name: "Fisherman's Fried Combination Platter", note: "“This is a big one” — our homemade crab cake with shrimp, flounder, deviled clams, scallops and fried clam strips. Add a steamed lobster tail." },
+          { name: "Carmen's House Specialty", note: "A dozen steamed littlenecks with tender shrimp and juicy mussels in our one-of-a-kind white sauce, served over pasta" },
+          { name: "Deluxe Ala Carmen", note: "The house specialty plus Alaskan king crab, fresh lobster tail and plump scallops — for one or for two" },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Crabs, Lobsters & Entrées",
+    sections: [
+      {
+        title: "Carmen Has Crabs",
+        items: [
+          { name: "Steamed Blue Claw Crabs", note: "In season" },
+          { name: "Alaskan King Crab Dinner" },
+          { name: "Baked or Sautéed Crabmeat", note: "Fresh jumbo lump crabmeat in our special garlic butter sauce" },
+          { name: "Snow Crab Legs", note: "1½ or 2 lbs, served with drawn butter" },
+          { name: "Dungeness Crab Legs", note: "1½ or 2 lbs, served with drawn butter" },
+        ],
+      },
+      {
+        title: "Lobsters",
+        intro: "Please allow extra time for stuffed lobsters and larger lobsters prepared especially for you. Lobsters stuffed with crabmeat available.",
+        items: [
+          { name: "Carmen's Whole Lobster", note: "A whole 1 to 1½ lb lobster from our tanks, steamed and served with drawn butter" },
+          { name: "Twins", note: "Two whole 1 to 1½ lb lobsters for you to enjoy (sorry, no sharing!)" },
+          { name: "Large Lobsters", note: "Ask your server for available sizes" },
+          { name: "Steamed Lobster Tails (2)", note: "4 oz each, served with drawn butter" },
+          { name: "3 Lobster Tails", note: "4 oz each, served with drawn butter" },
+        ],
+      },
+      {
+        title: "From the Sauté Pan",
+        items: [
+          { name: "Carmen's Shrimp Scampi", note: "Red or white sauce — sautéed shrimp in garlic butter over angel hair pasta" },
+          { name: "Sautéed Soft Shell Crabs", note: "In season — a special treat for soft shell lovers" },
+          { name: "Lobster Scampi", note: "NEW! Sautéed lobster in our garlic butter sauce over angel hair pasta" },
+        ],
+      },
+      {
+        title: "Broiled Entrées",
+        items: [
+          { name: "Crusted Scrod", note: "Atlantic scrod with a buttery crusted topping" },
+          { name: "Fisherman's Broiled Seafood Combination", note: "Filet of flounder with scallops, shrimp and broiled lobster tail" },
+          { name: "Broiled Salmon", note: "Fresh wild salmon" },
+          { name: "Broiled Flounder (Fluke)", note: "Jersey fresh" },
+          { name: "Broiled Scallops", note: "Day boat — tender and juicy" },
+          { name: "Broiled Shrimp", note: "Broiled to perfection" },
+          { name: "Broiled Shrimp and Scallops" },
+          { name: "Broiled Scallops and Flounder" },
+          { name: "Broiled Flounder and Shrimp" },
+          { name: "Stuffed Flounder", note: "A fresh filet folded over our crabmeat stuffing and broiled" },
+          { name: "Chilean Seabass", note: "Broiled in a lemon butter sauce — so good" },
+        ],
+      },
+      {
+        title: "From the Grill",
+        items: [
+          { name: "Swordfish" },
+          { name: "Mako Shark" },
+          { name: "Broiled or Pan Fried Mahi Mahi" },
+          { name: "Grilled or Blackened Tuna" },
+          { name: "Grilled Parmesan Peppercorn Chicken", note: "A boneless fillet in a parmesan peppercorn glaze" },
+          { name: "“U-Peel-Em” Steamed Shrimp Dinner", note: "Chilled or hot with lemon and cocktail sauce — half pound or full pound" },
+        ],
+      },
+      {
+        title: "Pasta & Parms",
+        intro: "All pasta dishes served with tossed salad and freshly baked bread. Parmigianas are lightly crumb breaded and fried, with a side of spaghetti or choice of two sides.",
+        items: [
+          { name: "Carmen's Spaghetti and Seafood", note: "Angel hair pasta, mussels and a 4 oz lobster tail in our homemade crabmeat sauce" },
+          { name: "Spaghetti and Meatballs, Carmen's Style", note: "Our angel hair, famous red sauce and homemade meatballs" },
+          { name: "Spaghetti Marinara", note: "Add crab sauce" },
+          { name: "Seafood Fra Diavolo", note: "Clams, mussels and shrimp in a spicy marinara over pasta — add a lobster tail" },
+          { name: "Mussels or Clams", note: "Red or white, served over angel hair pasta" },
+          { name: "Land and Sea Parmigiana", note: "Shrimp, scallops, chicken breast and flounder filet … a real feast!" },
+          { name: "Shrimp and Scallops Parmigiana" },
+          { name: "Chicken, Eggplant, Flounder or Shrimp Parmigiana" },
+          { name: "Baked Manicotti", note: "Ricotta-filled crepes, oven baked with Carmen's homemade sauce and mozzarella" },
+          { name: "Cheese Ravioli", note: "Marinara or rosa sauce — add two of Ruthy's meatballs" },
+          { name: "Lobster Ravioli Topped with Lobstermeat", note: "Marinara or rosa sauce — add a lobster tail" },
+        ],
+      },
+      {
+        title: "Steaks & Such",
+        items: [
+          { name: "New York Strip Steak", note: "11 oz prime beef, flame grilled" },
+          { name: "Steak Baltimore", note: "New York strip and lump crabmeat grilled in Old Bay" },
+          { name: "Surf and Turf", note: "Our strip steak paired with a broiled lobster tail, Alaskan king crab, grilled shrimp or sautéed crabmeat" },
+          { name: "Filet Mignon", note: "A 9 oz tender cut" },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Kids, Desserts & Beverages",
+    sections: [
+      {
+        title: "Children's Menu",
+        intro: "For people 12 & younger — served with tossed salad or apple sauce and one side dish.",
+        items: [
+          { name: "Char-Broiled Hamburger" },
+          { name: "Pasta and Meatball", note: "Less mess, more fun" },
+          { name: "Mini Fried Chicken Wings", note: "Just right for small hands" },
+          { name: "Fried Shrimp", note: "3 shrimp" },
+          { name: "Fried Clam Strips", note: "The perfect finger food" },
+          { name: "Chicken Parmigiana", note: "A house favorite" },
+          { name: "Lobster Tail", note: "One 2–4 oz tail, steamed" },
+          { name: "Flounder", note: "Choose a broiled or fried fillet" },
+          { name: "Chicken Fingers", note: "With barbecue sauce for dipping" },
+          { name: "Personal Size Pizza" },
+          { name: "Popcorn Chicken" },
+          { name: "Mac and Cheese" },
+        ],
+      },
+      {
+        title: "Desserts",
+        intro: "We have assorted homemade desserts every day — ask your server about our daily selections. And save room for Carrie's coconut cream pie.",
+        items: [{ name: "Celebration Cake", note: "For all your special occasions" }],
+      },
+      {
+        title: "Beverages",
+        intro: "Free refills on soda, coffee & tea.",
+        items: [
+          { name: "Juices", note: "Cranberry, orange, apple or tomato" },
+          { name: "Ice Cold Milk & Hershey's Chocolate Milk" },
+          { name: "Lemonade or Iced Tea" },
+          { name: "Coffee, Hot Tea & Hot Chocolate", note: "Regular or decaffeinated" },
+          { name: "Fountain Soda", note: "Cola, diet cola, root beer, lemon-lime or ginger ale — pitchers available" },
+          { name: "Bottled Spring Water" },
+        ],
+      },
+      {
+        title: "Good to Know",
+        intro:
+          "One check per party. 18% gratuity included for parties of 9 or more. All items available for take-out. Reservations accepted for parties of 9 or more. Ask about special group menus for parties, rehearsal dinners and weddings. Prices subject to change without notice.",
+        items: [],
+      },
+    ],
+  },
+];

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { CakeSlice, Coffee, Fish, Shell } from "lucide-react";
 
+import { MenuSign } from "@/components/MenuSign";
 import { Reveal, SectionHeading, staggerChild, staggerParent } from "@/components/Reveal";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { WaveDivider } from "@/components/WaveDivider";
@@ -93,6 +94,10 @@ export function Food() {
             </motion.div>
           ))}
         </motion.div>
+
+        <div className="mt-14">
+          <MenuSign />
+        </div>
       </div>
     </section>
   );
