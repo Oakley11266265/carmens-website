@@ -2,8 +2,34 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion, type Variants } from "framer-motion";
 import { ArrowLeft, ChevronLeft, ChevronRight, Phone } from "lucide-react";
 
-import { menuPages } from "@/data/menu";
+import menuPage1 from "@/assets/menu/menu-page-1.webp";
+import menuPage2 from "@/assets/menu/menu-page-2.webp";
+import menuPage3 from "@/assets/menu/menu-page-3.webp";
+import menuPage4 from "@/assets/menu/menu-page-4.webp";
 import { cn } from "@/lib/utils";
+
+const pages = [
+  {
+    src: menuPage1,
+    title: "Cover",
+    alt: "Carmen's menu cover — Dock Dining, est. 1970. Serving breakfast, lunch and dinner. Sea Isle City's original waterfront dining at its best.",
+  },
+  {
+    src: menuPage2,
+    title: "Appetizers & Fried",
+    alt: "Menu page one: appetizers, soups and salads, dinner accompaniments, golden fried seafood entrées, and specialties.",
+  },
+  {
+    src: menuPage3,
+    title: "Crabs & Entrées",
+    alt: "Menu page two: Carmen Has Crabs, lobsters, from the sauté pan, broiled entrées, from the grill, pasta and parms, steaks and such.",
+  },
+  {
+    src: menuPage4,
+    title: "Kids & Desserts",
+    alt: "Menu page three: children's menu, desserts, beverages, and restaurant information — 343 43rd Street and Bay, Sea Isle City, NJ.",
+  },
+];
 
 const flip: Variants = {
   enter: (dir: number) => ({
@@ -25,24 +51,14 @@ const flip: Variants = {
   }),
 };
 
-function OrnamentRule() {
-  return (
-    <div aria-hidden="true" className="my-2 flex items-center justify-center gap-2 text-crab-600">
-      <span className="h-px w-16 bg-current opacity-60" />
-      <span className="rotate-45 border border-current p-0.5" />
-      <span className="h-px w-16 bg-current opacity-60" />
-    </div>
-  );
-}
-
 const swipeThreshold = 60;
 
 export function MenuPage() {
   const [[index, direction], setPage] = useState([0, 0]);
-  const page = menuPages[index];
+  const page = pages[index];
 
   const paginate = (dir: number) =>
-    setPage(([i]) => [(i + dir + menuPages.length) % menuPages.length, dir]);
+    setPage(([i]) => [(i + dir + pages.length) % pages.length, dir]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -59,7 +75,6 @@ export function MenuPage() {
 
   return (
     <div className="min-h-svh bg-bay-950 pb-16">
-      {/* menu header bar */}
       <header className="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-4 sm:px-6">
         <a
           href="#top"
@@ -92,8 +107,7 @@ export function MenuPage() {
         </p>
       </motion.div>
 
-      {/* pager controls + page */}
-      <div className="mx-auto mt-8 flex max-w-6xl items-stretch gap-2 px-2 sm:gap-4 sm:px-6">
+      <div className="mx-auto mt-8 flex max-w-4xl items-stretch gap-2 px-2 sm:gap-4 sm:px-6">
         <button
           type="button"
           onClick={() => paginate(-1)}
@@ -105,7 +119,7 @@ export function MenuPage() {
 
         <div className="min-w-0 flex-1" style={{ perspective: 1600 }}>
           <AnimatePresence initial={false} custom={direction} mode="popLayout">
-            <motion.article
+            <motion.figure
               key={index}
               custom={direction}
               variants={flip}
@@ -120,37 +134,15 @@ export function MenuPage() {
                 else if (info.offset.x > swipeThreshold) paginate(-1);
               }}
               style={{ transformStyle: "preserve-3d" }}
-              className="grain cursor-grab rounded-sm border-4 border-double border-bay-900 bg-cream-50 px-5 py-8 shadow-lifted active:cursor-grabbing sm:px-10 sm:py-10"
+              className="cursor-grab active:cursor-grabbing"
             >
-              <h2 className="text-center font-display text-2xl text-bay-900 sm:text-3xl">
-                {page.title}
-              </h2>
-              <OrnamentRule />
-
-              <div className="mt-6 gap-x-10 md:columns-2">
-                {page.sections.map((section) => (
-                  <section key={section.title} className="mb-8 break-inside-avoid">
-                    <h3 className="text-center font-display text-xl tracking-wide text-crab-700 sm:text-2xl">
-                      {section.title}
-                    </h3>
-                    <OrnamentRule />
-                    {section.intro && (
-                      <p className="mb-3 text-center text-sm text-ink/70 italic">{section.intro}</p>
-                    )}
-                    <ul className="space-y-2.5">
-                      {section.items.map((item) => (
-                        <li key={item.name}>
-                          <p className="leading-snug font-bold text-bay-900">{item.name}</p>
-                          {item.note && (
-                            <p className="text-sm leading-snug text-ink/70">{item.note}</p>
-                          )}
-                        </li>
-                      ))}
-                    </ul>
-                  </section>
-                ))}
-              </div>
-            </motion.article>
+              <img
+                src={page.src}
+                alt={page.alt}
+                draggable={false}
+                className="mx-auto w-full max-w-2xl rounded-sm shadow-lifted select-none"
+              />
+            </motion.figure>
           </AnimatePresence>
         </div>
 
@@ -164,10 +156,9 @@ export function MenuPage() {
         </button>
       </div>
 
-      {/* page dots + mobile hint */}
       <div className="mt-6 flex flex-col items-center gap-2">
         <div className="flex items-center gap-3" role="tablist" aria-label="Menu pages">
-          {menuPages.map((p, i) => (
+          {pages.map((p, i) => (
             <button
               key={p.title}
               type="button"
@@ -183,7 +174,7 @@ export function MenuPage() {
           ))}
         </div>
         <p className="text-xs tracking-wide text-cream-100/60">
-          Page {index + 1} of {menuPages.length}
+          {page.title} &middot; page {index + 1} of {pages.length}
           <span className="md:hidden"> &middot; swipe the page to turn</span>
           <span className="hidden md:inline"> &middot; use the arrows or your keyboard</span>
         </p>
