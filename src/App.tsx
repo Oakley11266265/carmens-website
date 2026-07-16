@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import { Nav } from "@/components/Nav";
 import { Boats } from "@/sections/Boats";
 import { Food } from "@/sections/Food";
+import { Gallery } from "@/sections/Gallery";
 import { Hero } from "@/sections/Hero";
 import { Reviews } from "@/sections/Reviews";
 import { Shirt } from "@/sections/Shirt";
@@ -28,6 +29,7 @@ export default function App() {
         <Shirt />
         <Reviews />
         <Visit />
+        <Gallery />
       </main>
       <Footer />
       {/* sun-bleached film grain over everything */}
