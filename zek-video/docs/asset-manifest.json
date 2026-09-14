@@ -1,0 +1,89 @@
+{
+  "project": "ZEK Agency — cinematic property walkthrough promo reels",
+  "generated": "2026-09-14",
+  "summary": {
+    "propertyPhotographsUsed": 0,
+    "walkthroughFootageUsed": 0,
+    "imageFilesInProject": 0,
+    "note": "All visuals are code-built graphics. No photography or footage could be obtained; see blockedSources."
+  },
+  "blockedSources": [
+    {
+      "host": "zekagency.com",
+      "wanted": ["logo", "brand colours", "site copy", "portfolio stills", "finished walkthrough films", "offer details"],
+      "result": "403 from egress proxy (connect_rejected). Blocked via HTTPS and via the fetch tool. Nothing retrieved.",
+      "impact": "No real logo (text wordmark used instead). Brand hexes unverified. No client footage. No offer details were invented."
+    },
+    {
+      "host": "d8j0ntlcm91z4.cloudfront.net",
+      "wanted": ["7 generated illustrative property stills"],
+      "result": "403 from egress proxy. Images generated successfully but the result files could not be downloaded.",
+      "impact": "Image generation is effectively unavailable. Video generation was not attempted because results use the same blocked CDN."
+    },
+    { "host": "images.unsplash.com", "result": "403 from egress proxy" },
+    { "host": "pixabay.com / cdn.pixabay.com", "result": "403 from egress proxy" },
+    { "host": "freesound.org", "result": "403 from egress proxy" },
+    {
+      "host": "remotion.media",
+      "wanted": ["Chrome Headless Shell"],
+      "result": "403 from egress proxy",
+      "impact": "Worked around: renders use the Chromium preinstalled at /opt/pw-browsers (see remotion.config.ts)."
+    }
+  ],
+  "missingFootage": [
+    { "reel": "Reel01-PhotosIntoFilm", "scene": "photoReveal", "needs": "one original listing photo AND the finished clip of that same room" },
+    { "reel": "Reel01-PhotosIntoFilm", "scene": "featureCallout", "needs": "finished clip, same property, standout feature" },
+    { "reel": "Reel01-PhotosIntoFilm", "scene": "footage", "needs": "finished clip, same property, second room" },
+    { "reel": "Reel02-UseWhatYouHave", "scene": "photoStack", "needs": "4 original photos from one property's existing library" },
+    { "reel": "Reel02-UseWhatYouHave", "scene": "beforeAfter", "needs": "one original photo AND the finished clip of THAT SAME scene; then set demoTreatment:false" },
+    { "reel": "Reel02-UseWhatYouHave", "scene": "featureCallout", "needs": "finished clip, same property" },
+    { "reel": "Reel02-UseWhatYouHave", "scene": "footage", "needs": "finished clip, same property" },
+    { "reel": "Reel03-OpeningShot", "scene": "compare", "needs": "two different opening shots cut from ONE property" },
+    { "reel": "Reel03-OpeningShot", "scene": "featureCallout", "needs": "finished clip of the standout feature, same property" },
+    { "reel": "Reel03-OpeningShot", "scene": "footage", "needs": "finished clip, same property" }
+  ],
+  "assets": [
+    {
+      "localFile": "public/fonts/Inter-Variable-latin.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2",
+      "type": "font",
+      "format": "woff2 variable, latin subset",
+      "weights": "100-900",
+      "licence": "SIL Open Font License 1.1",
+      "commercialUse": true,
+      "nature": "third-party, openly licensed"
+    },
+    { "localFile": "public/audio/music-reveal.m4a", "type": "music", "durationSeconds": 32.0, "format": "AAC 192kbps 48kHz stereo", "tempoBpm": 120, "usedBy": "Reel01", "source": "original — synthesised by scripts/make_audio.py", "licence": "owned by ZEK Agency", "commercialUse": true },
+    { "localFile": "public/audio/music-warm.m4a", "type": "music", "durationSeconds": 32.0, "format": "AAC 192kbps 48kHz stereo", "tempoBpm": 120, "usedBy": "Reel02", "source": "original — synthesised by scripts/make_audio.py", "licence": "owned by ZEK Agency", "commercialUse": true },
+    { "localFile": "public/audio/music-focus.m4a", "type": "music", "durationSeconds": 32.0, "format": "AAC 192kbps 48kHz stereo", "tempoBpm": 120, "usedBy": "Reel03", "source": "original — synthesised by scripts/make_audio.py", "licence": "owned by ZEK Agency", "commercialUse": true },
+    { "localFile": "public/audio/sfx-whoosh.m4a", "type": "sfx", "durationSeconds": 0.55, "source": "original — synthesised", "licence": "owned by ZEK Agency", "commercialUse": true },
+    { "localFile": "public/audio/sfx-swipe.m4a", "type": "sfx", "durationSeconds": 0.34, "source": "original — synthesised", "licence": "owned by ZEK Agency", "commercialUse": true },
+    { "localFile": "public/audio/sfx-impact.m4a", "type": "sfx", "durationSeconds": 1.50, "source": "original — synthesised", "licence": "owned by ZEK Agency", "commercialUse": true },
+    { "localFile": "public/audio/sfx-tick.m4a", "type": "sfx", "durationSeconds": 0.06, "source": "original — synthesised", "licence": "owned by ZEK Agency", "commercialUse": true },
+    { "localFile": "public/audio/sfx-shutter.m4a", "type": "sfx", "durationSeconds": 0.12, "source": "original — synthesised", "licence": "owned by ZEK Agency", "commercialUse": true },
+    { "localFile": "public/audio/sfx-riser.m4a", "type": "sfx", "durationSeconds": 1.40, "source": "original — synthesised", "licence": "owned by ZEK Agency", "commercialUse": true },
+
+    { "id": "ridgeline-living",   "definedIn": "src/placeholder/plates.tsx", "type": "code-built SVG plate", "dimensions": "1080x1920", "layers": 5, "property": "Ridgeline (demo, fictional)", "room": "Living room", "nature": "illustrative graphic — NOT a real property, NOT client work" },
+    { "id": "ridgeline-kitchen",  "definedIn": "src/placeholder/plates.tsx", "type": "code-built SVG plate", "dimensions": "1080x1920", "layers": 5, "property": "Ridgeline (demo, fictional)", "room": "Kitchen", "nature": "illustrative graphic — NOT a real property, NOT client work" },
+    { "id": "ridgeline-terrace",  "definedIn": "src/placeholder/plates.tsx", "type": "code-built SVG plate", "dimensions": "1080x1920", "layers": 5, "property": "Ridgeline (demo, fictional)", "room": "Terrace / pool at dusk", "nature": "illustrative graphic — NOT a real property, NOT client work" },
+    { "id": "shoreline-bedroom",  "definedIn": "src/placeholder/plates.tsx", "type": "code-built SVG plate", "dimensions": "1080x1920", "layers": 5, "property": "Shoreline (demo, fictional)", "room": "Bedroom", "nature": "illustrative graphic — NOT a real property, NOT client work" },
+    { "id": "shoreline-bath",     "definedIn": "src/placeholder/plates.tsx", "type": "code-built SVG plate", "dimensions": "1080x1920", "layers": 5, "property": "Shoreline (demo, fictional)", "room": "Bathroom", "nature": "illustrative graphic — NOT a real property, NOT client work" },
+    { "id": "shoreline-living",   "definedIn": "src/placeholder/plates.tsx", "type": "code-built SVG plate", "dimensions": "1080x1920", "layers": 5, "property": "Shoreline (demo, fictional)", "room": "Living room", "nature": "illustrative graphic — NOT a real property, NOT client work" },
+
+    { "id": "zek-wordmark", "definedIn": "src/brand/Wordmark.tsx", "type": "live text wordmark", "nature": "placeholder — the real ZEK logo could not be downloaded" }
+  ],
+  "brandColours": {
+    "verified": false,
+    "reason": "zekagency.com unreachable; hexes could not be sampled",
+    "values": { "paper": "#FFFFFF", "ink": "#0B0B0C", "blue": "#1D4ED8", "blueDeep": "#12309C", "blueSoft": "#DCE6FF", "inkMuted": "#6B7280" }
+  },
+  "claimsAudit": {
+    "pricesStated": 0,
+    "turnaroundTimesStated": 0,
+    "revisionAllowancesStated": 0,
+    "clientResultsStated": 0,
+    "testimonialsStated": 0,
+    "performanceStatisticsStated": 0,
+    "note": "No offer detail was invented. Only the brief's own claims are made."
+  }
+}

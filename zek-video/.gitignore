@@ -1,0 +1,16 @@
+node_modules
+dist
+.DS_Store
+.env
+
+# QC stills and scratch from the verifier are regenerable — see
+# scripts/qc-frames.mjs and scripts/verify-output.mjs.
+out/qc/
+out/.verify-*
+
+# Intermediate WAVs from scripts/make_audio.py. The committed .m4a files are
+# the encoded output; regenerate with make_audio.py + encode_audio.sh.
+public/audio/*.wav
+
+# The finished reels and covers in out/ ARE committed — they are the
+# deliverable. Everything else in out/ is not.
